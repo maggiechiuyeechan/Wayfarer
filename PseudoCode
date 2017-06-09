@@ -1,0 +1,11 @@
+//log-in 
+//get data of origin and destination co-ordinates stored in firebase, if none stored - open location input panel
+	- if there is, then just display map with locations
+//display map using mapbox
+//header has social media shareable, logout, map centering
+//when user enters location, and uploads photos, store them in firebase
+//add the locations onto the map and add the first image as the pin image
+//draw arc from origin to destination
+//if user clicks on pin, open gallery
+//if user clicks on an image, open lightbox with ability to share, close and switch between images
+
