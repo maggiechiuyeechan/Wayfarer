@@ -9,7 +9,8 @@ const config = {
 
 firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-const storageRef = firebase.storage().ref();
+
+const storageRef = firebase.storage().ref(); 
 
 export default { databaseRef };
 export { storageRef };

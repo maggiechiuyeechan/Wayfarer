@@ -6,18 +6,28 @@ export default class Map extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			currentLocation: {}
+			currentLocation: {},
+			cityId: {}
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 	handleSubmit(e) {
-		e.preventDefault();
-		console.log(this.file.files)
 
-		// let file = this.file.files[0];
-		// let thisImage = storageRef.child(this.file.files.name);
-		// thisImage.put(file).then((snapshot)=>{console.log("uploaded");});
-		// Firebase.databaseRef.push(this.state.currentLocation.coordinates);
+		e.preventDefault();
+
+		if ( this.state.currentLocation !== undefined) {
+			Firebase.databaseRef.push(this.state.currentLocation);
+		}
+
+		const cityRef = storageRef.child(this.state.cityId);
+		let fileList = this.file.files;
+
+		for (let eachFile in fileList) {
+			if ( fileList[eachFile].name !== undefined) {
+				let thisImage = cityRef.child(fileList[eachFile].name);
+				thisImage.put(fileList[eachFile]).then((snapshot)=>{console.log("uploaded");});
+			};
+		};
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -31,7 +41,8 @@ export default class Map extends React.Component {
 			nextProps.map.addControl(mapboxgl.geocoder);
 
 			mapboxgl.geocoder.on('result', (event) => {
-				this.setState({ currentLocation:event.result.geometry });
+				this.setState({ currentLocation: event.result.geometry });
+				this.setState({ cityId: String(event.result.geometry.coordinates) });
 			});
 
 		}
