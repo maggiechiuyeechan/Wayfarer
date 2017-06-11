@@ -9,12 +9,9 @@ const config = {
 
 firebase.initializeApp(config);
 const databaseRef = firebase.database().ref();
-
 const storageRef = firebase.storage().ref(); 
+const databaseRefRoot = firebase.database().ref("/");
 
 export default { databaseRef };
 export { storageRef };
-// export default firebase = { 
-// 	databaseRef: firebase.database().ref(),
-// 	storageRef: firebase.storage().ref()
-// }
+export { databaseRefRoot }

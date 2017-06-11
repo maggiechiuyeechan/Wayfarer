@@ -11,6 +11,7 @@ export default class Map extends React.Component {
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+
 	handleSubmit(e) {
 
 		e.preventDefault();
@@ -47,6 +48,7 @@ export default class Map extends React.Component {
 
 		}
 	}
+
 	render(){
 		return(
 			<div>

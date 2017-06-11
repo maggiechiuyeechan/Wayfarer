@@ -1,6 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import InputForm from "../inputForm";
+import GeoJson from "../FirebaseToGeoJson/"
 
 mapboxgl.accessToken = "pk.eyJ1IjoiZW1tY2VlIiwiYSI6ImNqM296NGRpbTAwZmIzMm51ZWgxM2lmcDcifQ.PBztfR7grwxt_2auv7OeSw";
 
@@ -24,10 +25,11 @@ export default class Map extends React.Component {
 	}
 	render(){
 		return(
-			<div>
+			<main>
+				<GeoJson map={this.state.map} />
 				<div className="map" ref={node => this.map = node}></div>
 				<InputForm map={this.state.map} />
-			</div>
+			</main>
 		)
 	}
 }
