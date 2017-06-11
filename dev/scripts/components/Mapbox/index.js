@@ -1,7 +1,7 @@
 import React from "react";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 import InputForm from "../inputForm";
-import GeoJson from "../FirebaseToGeoJson/"
+import GeoJson from "../FirebaseToGeoJson"
 
 mapboxgl.accessToken = "pk.eyJ1IjoiZW1tY2VlIiwiYSI6ImNqM296NGRpbTAwZmIzMm51ZWgxM2lmcDcifQ.PBztfR7grwxt_2auv7OeSw";
 
