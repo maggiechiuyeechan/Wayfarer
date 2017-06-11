@@ -21,8 +21,9 @@ export default class GeoJson extends React.Component {
 		userGeojson['features'] = [];
 
 		for (var key in firebaseObj) {
-			let lat = firebaseObj[key].coordinates[0];
-			let lon = firebaseObj[key].coordinates[1];
+			let lat = firebaseObj[key].point.coordinates[0];
+			let lon = firebaseObj[key].point.coordinates[1];
+
 			let newFeature = {
 				"type": "Feature",
 				"geometry": {
@@ -46,31 +47,12 @@ export default class GeoJson extends React.Component {
 			let firebaseObj = snapshot.val();
 			this.convertToGeojson(firebaseObj);
 		});
-
-		// nextProps.map.on('load', () => {
-		// 		nextProps.map.addSource('firebase', {
-		// 			type: 'geojson',
-		// 			data: this.state.userGeojson
-		// 		});
-
-		// nextProps.map.addLayer({
-		// 		id: 'firebase',
-		// 		source: 'firebase',
-		// 		type: 'circle',
-		// 		paint: {
-		// 			  "circle-color":'blue',
-		// 			  'circle-radius': 15
-		// 			}
-		// 		});
-		// });
-
 		this.setState({ map : nextProps}) 
 }
 
 	render(){ 
 		return ( 
 			<div>
-				<h1>Hello</h1>
 				<UpdateMapLayer geoJson={this.state.userGeojson} map={this.state.map} />
 			</div> 
 		) }

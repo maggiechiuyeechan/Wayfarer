@@ -19,16 +19,11 @@ export default class updateMapLayer extends React.Component {
 			        //window.alert(marker.properties.message);
 			    });
 
-			    // add marker to map
 			    new mapboxgl.Marker(el, {offset:[-50,-50]})
 			        .setLngLat(marker.geometry.coordinates)
 			        .addTo(nextProps.map.map);
 			});
 		}
-
-		// if ( nextProps.map.map.getSource('firebase') !== undefined) {
-		// 	nextProps.map.map.getSource('firebase').setData(nextProps.geoJson);
-		// }
 	}
 	render(){
 		return(

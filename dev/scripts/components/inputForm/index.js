@@ -1,40 +1,49 @@
 import React from "react";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
-import Firebase, { storageRef } from "../../Common/FirebaseConfig";
+import Firebase, { storageRef, firebaseDb } from "../../Common/FirebaseConfig";
+import FirebaseToGeojson from "../FirebaseToGeoJson/"
 
 export default class Map extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-			currentLocation: {},
-			cityId: {}
+			currentLocation: { point: null, cityId: null, downloadLink: null},
+			currentArrayUrls: []
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleSubmit(e) {
-
 		e.preventDefault();
 
-		if ( this.state.currentLocation !== undefined) {
-			Firebase.databaseRef.push(this.state.currentLocation);
-		}
-
-		const cityRef = storageRef.child(this.state.cityId);
 		let fileList = this.file.files;
+		const cityRef = storageRef.child(this.state.currentLocation.cityId);
 
-		for (let eachFile in fileList) {
-			if ( fileList[eachFile].name !== undefined) {
-				let thisImage = cityRef.child(fileList[eachFile].name);
-				thisImage.put(fileList[eachFile]).then((snapshot)=>{console.log("uploaded");});
-			};
-		};
+		if ( this.state.currentLocation !== undefined) {
+			Firebase.databaseRef.push(this.state.currentLocation).then((snapshot)=>{ 
+ 				let currentKey = (snapshot.key);
+
+ 				for (let eachFile in fileList) {
+					if (fileList[eachFile].name !== undefined){
+						let thisImage = cityRef.child(fileList[eachFile].name);
+						console.log(currentKey);
+						thisImage.put(fileList[eachFile]).then((snapshot)=>{ 
+							var newArrayUrl = this.state.currentArrayUrls;
+							newArrayUrl.push(snapshot.metadata.downloadURLs[0]);
+
+							this.setState({
+								currentArrayUrls: newArrayUrl
+							});
+
+							firebaseDb.ref(currentKey+"/downloadLink/").set(this.state.currentArrayUrls);
+						});
+					}
+				}
+			});
+		}
 	}
-
 	componentWillReceiveProps(nextProps) {
-
 		if (nextProps.map !== null) {
-
 			mapboxgl.geocoder = new MapboxGeocoder({
 			    accessToken: mapboxgl.accessToken
 			});
@@ -42,13 +51,15 @@ export default class Map extends React.Component {
 			nextProps.map.addControl(mapboxgl.geocoder);
 
 			mapboxgl.geocoder.on('result', (event) => {
-				this.setState({ currentLocation: event.result.geometry });
-				this.setState({ cityId: String(event.result.geometry.coordinates) });
+				let point = event.result.geometry;
+				let pointString = String(event.result.geometry.coordinates); 
+				this.setState({ currentLocation: { point, cityId : pointString, downloadLink: null}});
 			});
 
 		}
 	}
 
+				//<FirebaseToGeojson firebaseStoragePath={this.state.storagePath} />
 	render(){
 		return(
 			<div>

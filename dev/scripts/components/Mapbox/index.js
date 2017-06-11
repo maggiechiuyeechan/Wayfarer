@@ -26,8 +26,8 @@ export default class Map extends React.Component {
 	render(){
 		return(
 			<main>
-				<GeoJson map={this.state.map} />
 				<div className="map" ref={node => this.map = node}></div>
+				<GeoJson map={this.state.map} />
 				<InputForm map={this.state.map} />
 			</main>
 		)
