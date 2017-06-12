@@ -8,7 +8,8 @@ export default class Map extends React.Component {
 		super();
 		this.state = {
 			currentLocation: { point: null, cityId: null, downloadLink: null},
-			currentArrayUrls: []
+			currentArrayUrls: [],
+			map: {}
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -19,28 +20,30 @@ export default class Map extends React.Component {
 		let fileList = this.file.files;
 		const cityRef = storageRef.child(this.state.currentLocation.cityId);
 
-		if ( this.state.currentLocation !== undefined) {
+		if ( this.state.currentLocation !== undefined ) {
 			Firebase.databaseRef.push(this.state.currentLocation).then((snapshot)=>{ 
  				let currentKey = (snapshot.key);
 
  				for (let eachFile in fileList) {
 					if (fileList[eachFile].name !== undefined){
 						let thisImage = cityRef.child(fileList[eachFile].name);
-						console.log(currentKey);
 						thisImage.put(fileList[eachFile]).then((snapshot)=>{ 
+
 							var newArrayUrl = this.state.currentArrayUrls;
 							newArrayUrl.push(snapshot.metadata.downloadURLs[0]);
 
 							this.setState({
 								currentArrayUrls: newArrayUrl
 							});
-
 							firebaseDb.ref(currentKey+"/downloadLink/").set(this.state.currentArrayUrls);
 						});
 					}
 				}
 			});
 		}
+		this.setState({
+			currentArrayUrls: []
+		})
 	}
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.map !== null) {
@@ -56,13 +59,19 @@ export default class Map extends React.Component {
 				this.setState({ currentLocation: { point, cityId : pointString, downloadLink: null}});
 			});
 
+			this.setState({
+				map: nextProps.map
+			})
 		}
+
+
 	}
 
-				//<FirebaseToGeojson firebaseStoragePath={this.state.storagePath} />
 	render(){
 		return(
 			<div>
+				<FirebaseToGeojson map={this.state.map} />
+
 				<form onSubmit={this.handleSubmit}> 
 					<input type ="file" ref= {(ref)=> this.file = ref} multiple/>
 					<input type="submit" value="Submit" />

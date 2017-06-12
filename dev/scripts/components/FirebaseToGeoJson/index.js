@@ -15,31 +15,35 @@ export default class GeoJson extends React.Component {
 
 	}
 
-	convertToGeojson(firebaseObj, passMap){
-		let userGeojson = {};
-		userGeojson['type'] = 'FeatureCollection';
-		userGeojson['features'] = [];
+	convertToGeojson(firebaseObj){
+			let userGeojson = {};
+			userGeojson['type'] = 'FeatureCollection';
+			userGeojson['features'] = [];
 
-		for (var key in firebaseObj) {
-			let lat = firebaseObj[key].point.coordinates[0];
-			let lon = firebaseObj[key].point.coordinates[1];
+			for (var key in firebaseObj) {
+				if (firebaseObj[key].downloadLink !== undefined) { 
+					let lat = firebaseObj[key].point.coordinates[0];
+					let lon = firebaseObj[key].point.coordinates[1];
+					let imgURL = firebaseObj[key].downloadLink[0];
 
-			let newFeature = {
-				"type": "Feature",
-				"geometry": {
-					"type": "Point",
-					"coordinates": [ lat, lon ]
-					},
-				"properties": {
-					"key": key,
-					"description": ""
+					let newFeature = {
+						"type": "Feature",
+						"geometry": {
+							"type": "Point",
+							"coordinates": [ lat, lon ]
+							},
+						"properties": {
+							"key": key,
+							"description": "",
+							"firstImage": imgURL
+							}
 					}
+					userGeojson['features'].push(newFeature);
+					this.setState({
+						userGeojson : userGeojson
+					});
 			}
-			userGeojson['features'].push(newFeature);
 		}
-		this.setState({
-			userGeojson : userGeojson
-		});
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -47,7 +51,7 @@ export default class GeoJson extends React.Component {
 			let firebaseObj = snapshot.val();
 			this.convertToGeojson(firebaseObj);
 		});
-		this.setState({ map : nextProps}) 
+		this.setState({ map : nextProps }) 
 }
 
 	render(){ 
