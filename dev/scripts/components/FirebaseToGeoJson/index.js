@@ -9,7 +9,7 @@ export default class GeoJson extends React.Component {
 		super();
 		this.state = {
 			userGeojson : {},
-			map: null
+			map: null,
 		}
 		this.convertToGeojson = this.convertToGeojson.bind(this);
 

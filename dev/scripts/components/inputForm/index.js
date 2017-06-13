@@ -46,6 +46,7 @@ export default class Map extends React.Component {
 		})
 	}
 	componentWillReceiveProps(nextProps) {
+
 		if (nextProps.map !== null) {
 			mapboxgl.geocoder = new MapboxGeocoder({
 			    accessToken: mapboxgl.accessToken

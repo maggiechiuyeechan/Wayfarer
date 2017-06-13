@@ -15,8 +15,8 @@ export default class Map extends React.Component {
 	componentDidMount(){
 		var map = new mapboxgl.Map({
 			container: this.map,
-			style: 'mapbox://styles/mapbox/light-v9?optimize=true',
-			maxZoom: 10,
+			style: 'mapbox://styles/emmcee/cj3vpu9hb01962snxx9rphata',
+			maxZoom: 22,
 			minZoom: 2
 		});
 		this.setState({

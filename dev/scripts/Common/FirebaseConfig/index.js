@@ -12,8 +12,10 @@ const databaseRef = firebase.database().ref();
 const storageRef = firebase.storage().ref(); 
 const databaseRefRoot = firebase.database().ref("/");
 const firebaseDb = firebase.database();
+const firebaseStorageDb= firebase.storage();
 
 export default { databaseRef };
 export { storageRef };
 export { databaseRefRoot };
 export { firebaseDb };
+export {firebaseStorageDb };
