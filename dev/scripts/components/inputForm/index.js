@@ -9,7 +9,8 @@ export default class Map extends React.Component {
 		this.state = {
 			currentLocation: { point: null, cityId: null, downloadLink: null},
 			currentArrayUrls: [],
-			map: {}
+			map: {},
+			placeName: null,
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -56,8 +57,10 @@ export default class Map extends React.Component {
 
 			mapboxgl.geocoder.on('result', (event) => {
 				let point = event.result.geometry;
+				let placeName = event.result.place_name;
+				console.log(event.result);
 				let pointString = String(event.result.geometry.coordinates); 
-				this.setState({ currentLocation: { point, cityId : pointString, downloadLink: null}});
+				this.setState({ currentLocation: { point, cityId : pointString, placeName: placeName, downloadLink: null}});
 			});
 
 			this.setState({
