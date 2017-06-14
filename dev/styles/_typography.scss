@@ -3,10 +3,10 @@ $secondaryFontFamily: "Lato", "Arial", sans-serif;
 
 html{
 	@media (min-width: $lg){
-		font-size: 16px;
+		font-size: 13px;
 	}
 	@media (max-width: $lg){
-		font-size: 14px;
+		font-size: 13px;
 	}
 	@media (max-width: $md){
 		font-size: 12px;
@@ -19,6 +19,12 @@ html{
 	}
 }
 
+.logoText {
+	font-size: 26px;
+	text-transform: uppercase;
+	letter-spacing: 0.25rem;
+	text-align: center;
+}
 
 body {
 	font-family: $primaryFontFamily;
@@ -31,11 +37,11 @@ h1, h2, h3, h4 h5, h6 {
 }
 
 h1 {
-	font-size: 3rem;
+	font-size: 2.5rem;
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 1.75rem;
 }
 /// SPECIFIC PURPOSE
 .label__titles {

@@ -11,6 +11,7 @@ export default class updateMapLayer extends React.Component {
 		this.state = {
 			dbkey: null,
 			firebaseElement: null,
+			clicked: false,
 		}
 	}
 	componentWillReceiveProps(nextProps) {
@@ -23,10 +24,9 @@ export default class updateMapLayer extends React.Component {
 					//el.style.backgroundImage = `url(http://unsplash.it/100/100)`;
 
 					el.addEventListener('click', ()=>{
-						console.log("I'm clicked");
 						const dbkey = marker.properties.key;
 						this.setState({dbkey});
-
+						this.setState({clicked:true});
 						firebaseDb.ref(dbkey).on("value",(snapshot)=>{
 							this.setState({firebaseElement: snapshot.val()});
 						})
@@ -36,12 +36,15 @@ export default class updateMapLayer extends React.Component {
 					.setLngLat(marker.geometry.coordinates)
 					.addTo(nextProps.map.map);
 			});
+			this.setState({
+				clicked:false
+			})
 		}
 	}
 
 	render(){
 		return(
-			<Gallery dbkey={this.state.dbkey} firebaseElement={this.state.firebaseElement}/>
+			<Gallery clicked={this.state.clicked} dbkey={this.state.dbkey} firebaseElement={this.state.firebaseElement}/>
 		);
 	};
 };

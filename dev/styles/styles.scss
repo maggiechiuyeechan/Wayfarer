@@ -6,23 +6,8 @@ $sm: 850px;
 $xs: 700px;
 $xxs: 400px;
 
-
-html {
-	@media (max-width: $xl){
-		background: blue;
-	}
-	@media (max-width: $lg){
-		background: purple;
-	}
-	@media (max-width: $md){
-		background: orange;
-	}
-	@media (max-width: $sm){
-		background: yellow;
-	}
-	@media (max-width: $xs){
-		background: green;
-	}
+body{
+	background-color: rgb(41,55,64);
 }
 
 @import "setup";

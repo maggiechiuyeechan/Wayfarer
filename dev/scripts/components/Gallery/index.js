@@ -18,10 +18,11 @@ function DisplayGallery(props){
 				// { firebaseImgs.map((link)=>{<li><img src={link}/></li>}) };
 	if (isVisible === true && firebaseElement !== null){
 		const firebaseImgs = firebaseElement.downloadLink;
+		const firebasePlaceName = firebaseElement.placeName;
 		return (
 			<div className="gallery">
 					<button type="button" className="gallery__exit exitButton" onClick={props.exitPanel}><i className="fa fa-times" aria-hidden="true"></i></button>
-					<h2> Image Gallery </h2>
+					<h1 className="gallery__title"> {firebasePlaceName} </h1>
 				<div className="gallery__imageItems">
 					<ul>
 							{ firebaseImgs.map((link)=>{
@@ -122,7 +123,7 @@ export default class Gallery extends React.Component {
 
 	componentWillReceiveProps(nextProps) {
 
-		if (nextProps !== undefined) {
+		if (nextProps !== undefined && nextProps.clicked) {
 			this.setState({
 				dbkey: nextProps.dbkey,
 				isVisible: true,

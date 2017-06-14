@@ -29,7 +29,7 @@ $font-size: 1.1rem;
   border:0;
   background-color:transparent;
   margin:0;
-  padding:15px 15px 15px 40px;
+  padding:10px 12px 12px 40px;
   text-overflow:ellipsis;
   white-space:nowrap;
   overflow:hidden;
@@ -64,10 +64,10 @@ $font-size: 1.1rem;
   display:none;
   }
 
-.mapboxgl-ctrl-geocoder,
-.mapboxgl-ctrl-geocoder ul {
- box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
-  }
+// .mapboxgl-ctrl-geocoder,
+// .mapboxgl-ctrl-geocoder ul {
+//  box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+//   }
 
 /* Suggestions */
 .mapboxgl-ctrl-geocoder ul {

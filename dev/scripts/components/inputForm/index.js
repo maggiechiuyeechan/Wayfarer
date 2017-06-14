@@ -63,6 +63,7 @@ export default class Map extends React.Component {
 		if ( this.state.currentLocation !== undefined ) {
 			Firebase.databaseRef.push(this.state.currentLocation).then((snapshot)=>{ 
  				let currentKey = (snapshot.key);
+ 				firebaseDb.ref(currentKey+"/PlaceName/").set(this.state.currentLocation.placeName);
 
  				for (let eachFile in fileList) {
 					if (fileList[eachFile].name !== undefined){
@@ -99,8 +100,8 @@ export default class Map extends React.Component {
 				let point = event.result.geometry;
 				let placeName = event.result.place_name;
 				let pointString = String(event.result.geometry.coordinates); 
-				this.setState({ currentLocation: { point, cityId : pointString, placeName: placeName, downloadLink: null}});
-				this.setState({ isImageInputVisible: true})
+				this.setState({ currentLocation: { point, cityId : pointString, placeName: placeName, downloadLink: null},
+								isImageInputVisible: true});
 			});
 
 			this.setState({

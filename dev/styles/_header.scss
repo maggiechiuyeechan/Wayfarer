@@ -7,26 +7,21 @@ main{
 }
 
 .header__Container{
-	padding: 1.5rem;
+	padding: 16px;
 	height: 70px;
 	background-color: #1B2531;
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
-	border-top: 5px solid #CF9345;
+	border-top: 3px solid #CF9345;
+	border-bottom: 3px solid #CF9345;
+
 }
 
 .containMap{
-	height: calc(100vh - 70px);
+	height: calc(100vh - 60px);
 }
 
 .map { 
 	position:absolute; 
-	height: 100vh; 
+	height: 100vh;
 	width:100%; 
-}
-
-.logoText {
-	font-size: 20px;
-	text-transform: uppercase;
-	letter-spacing: 0.25rem;
-	text-align: center;
 }

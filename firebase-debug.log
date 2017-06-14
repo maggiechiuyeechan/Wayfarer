@@ -1,0 +1,23 @@
+[debug] [2017-06-14T06:24:43.799Z] ----------------------------------------------------------------------
+[debug] [2017-06-14T06:24:43.801Z] Command:      /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-06-14T06:24:43.802Z] CLI Version:  3.9.1
+[debug] [2017-06-14T06:24:43.802Z] Platform:     darwin
+[debug] [2017-06-14T06:24:43.802Z] Node Version: v7.10.0
+[debug] [2017-06-14T06:24:43.803Z] Time:         Wed Jun 14 2017 02:24:43 GMT-0400 (EDT)
+[debug] [2017-06-14T06:24:43.803Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-06-14T06:24:43.812Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-06-14T06:24:43.812Z] > authorizing via signed-in user
+[debug] [2017-06-14T06:24:43.814Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/wayfarer-17532  
+ Wed Jun 14 2017 02:24:43 GMT-0400 (EDT)
+[debug] [2017-06-14T06:24:44.612Z] <<< HTTP RESPONSE 200
+[debug] [2017-06-14T06:24:44.613Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/wayfarer-17532/tokens  
+ Wed Jun 14 2017 02:24:44 GMT-0400 (EDT)
+[debug] [2017-06-14T06:24:45.037Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'wayfarer-17532'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing . directory for upload...
+[debug] [2017-06-14T06:25:02.513Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/wayfarer-17532/uploads/-Km_GdJPzKZaRluphc9o?fileCount=17749&message=  
+ Wed Jun 14 2017 02:25:02 GMT-0400 (EDT)
