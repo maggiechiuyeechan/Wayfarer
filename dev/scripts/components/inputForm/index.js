@@ -22,7 +22,7 @@ function EnterImages(props){
 						<form className="enterCityImages" onSubmit={props.handleSubmit}> 
 							<input className="inputfile buttons chooseFiles" id="uploadImagesToLocation" type ="file" onChange={props.getFile} multiple/>
 							<label className="chooseFiles" htmlFor="uploadImagesToLocation" >Choose Files</label>
-							<input className="inputForm buttons submit" type="submit" value="Upload" />
+							<input className="inputForm buttons submit" type="submit" value="Click to upload" />
 							<p className="note"> File size limit: maximum 1mb per image </p>
 						</form>
 					</div>

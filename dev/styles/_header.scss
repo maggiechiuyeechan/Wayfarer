@@ -8,15 +8,14 @@ main{
 
 .header__Container{
 	padding: 1.5rem;
-	height: 8vh;
-	min-height: 25px;
+	height: 70px;
 	background-color: #1B2531;
 	box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
 	border-top: 5px solid #CF9345;
 }
 
 .containMap{
-	height: 92vh;
+	height: calc(100vh - 70px);
 }
 
 .map { 
@@ -26,6 +25,7 @@ main{
 }
 
 .logoText {
+	font-size: 20px;
 	text-transform: uppercase;
 	letter-spacing: 0.25rem;
 	text-align: center;

@@ -20,9 +20,8 @@ function DisplayGallery(props){
 		const firebaseImgs = firebaseElement.downloadLink;
 		return (
 			<div className="gallery">
-				<div className="gallery__header">
 					<button type="button" className="gallery__exit exitButton" onClick={props.exitPanel}><i className="fa fa-times" aria-hidden="true"></i></button>
-				</div>
+					<h2> Image Gallery </h2>
 				<div className="gallery__imageItems">
 					<ul>
 							{ firebaseImgs.map((link)=>{
