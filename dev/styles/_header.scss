@@ -1,0 +1,32 @@
+main{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	//height: 100vh;
+	overflow: hidden;
+}
+
+.header__Container{
+	padding: 1.5rem;
+	height: 8vh;
+	min-height: 25px;
+	background-color: #1B2531;
+	box-shadow: 0 0 0 2px rgba(0,0,0,0.25);
+	border-top: 5px solid #CF9345;
+}
+
+.containMap{
+	height: 92vh;
+}
+
+.map { 
+	position:absolute; 
+	height: 100vh; 
+	width:100%; 
+}
+
+.logoText {
+	text-transform: uppercase;
+	letter-spacing: 0.25rem;
+	text-align: center;
+}

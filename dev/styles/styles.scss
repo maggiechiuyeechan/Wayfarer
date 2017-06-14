@@ -1,3 +1,30 @@
+// breakpoint variables
+$xl: 1400px;
+$lg: 1220px;
+$md: 1000px;
+$sm: 850px;
+$xs: 700px;
+$xxs: 400px;
+
+
+html {
+	@media (max-width: $xl){
+		background: blue;
+	}
+	@media (max-width: $lg){
+		background: purple;
+	}
+	@media (max-width: $md){
+		background: orange;
+	}
+	@media (max-width: $sm){
+		background: yellow;
+	}
+	@media (max-width: $xs){
+		background: green;
+	}
+}
+
 @import "setup";
 
 ///GENERIC
@@ -7,3 +34,6 @@
 ///COMPONENTS
 @import "map";
 @import "geocoder";
+@import "inputForms";
+@import "header";
+@import "gallery";

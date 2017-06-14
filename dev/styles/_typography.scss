@@ -1,0 +1,54 @@
+$primaryFontFamily: "Alegreya", "Times", serif;
+$secondaryFontFamily: "Lato", "Arial", sans-serif;
+
+html{
+	@media (min-width: $lg){
+		font-size: 14px;
+	}
+	@media (max-width: $lg){
+		font-size: 14px;
+	}
+	@media (max-width: $md){
+		font-size: 14px;
+	}
+	@media (max-width: $sm){
+		font-size: 14px;
+	}
+	@media (max-width: $xs){
+		font-size: 14px;
+	}
+}
+
+
+body {
+	font-family: $primaryFontFamily;
+	color: $gold;
+}
+
+h1, h2, h3, h4 h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+/// SPECIFIC PURPOSE
+.label__titles {
+	color: $gold;
+
+	font-size: 0.6rem;
+	font-family: $secondaryFontFamily;
+	letter-spacing: 0.20rem;
+	text-transform: uppercase;
+}
+
+.note {
+	font-size: 0.75rem;
+	font-family: $secondaryFontFamily;
+	font-weight: 400;
+}

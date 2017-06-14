@@ -17,7 +17,9 @@ export default class Map extends React.Component {
 			container: this.map,
 			style: 'mapbox://styles/emmcee/cj3vpu9hb01962snxx9rphata',
 			maxZoom: 22,
-			minZoom: 2
+			minZoom: 2,
+			pitchWithRotate: false,
+			dragRotate: false
 		});
 		this.setState({
 			map

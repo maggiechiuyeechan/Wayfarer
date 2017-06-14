@@ -1,0 +1,73 @@
+.inputForm__container{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	margin: 0;
+	width: 100%;
+	bottom: 0;
+	background-color: #1B2531;
+	z-index: 2;
+}
+
+.inputForm__mainContainer{
+	display:flex;
+	justify-content: space-between;
+}
+.inputForm__location{
+	margin-right: 5%;
+	max-width: 75%;
+}
+
+.exitButton{
+	align-self: flex-end;
+	color: #CF9345;
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	&:hover{
+		color: #F5F3F0;
+	}
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label,
+.buttons
+ {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1.5rem;
+    color: #CF9345;
+    background-color: transparent;
+    border: 3px solid #CF9345;
+    display: inline-block;
+}
+
+.chooseFiles {
+	margin-right: 1%;
+}
+
+.submit{
+	background-color: #CF9345;
+	color: #1B2531;
+	&:hover{
+		color: #F5F3F0;
+	}
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #2B3740; //$mediumBlue
+    color: #F5F3F0;
+}
+
+.inputfile + label {
+	cursor: pointer; 
+}

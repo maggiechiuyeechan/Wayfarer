@@ -10,6 +10,7 @@ export default class GeoJson extends React.Component {
 		this.state = {
 			userGeojson : {},
 			map: null,
+			firebaseObj: null
 		}
 		this.convertToGeojson = this.convertToGeojson.bind(this);
 
@@ -50,6 +51,9 @@ export default class GeoJson extends React.Component {
 		databaseRefRoot.on('value', (snapshot) => {
 			let firebaseObj = snapshot.val();
 			this.convertToGeojson(firebaseObj);
+			this.setState({
+				firebaseObj
+			})
 		});
 		this.setState({ map : nextProps }) 
 }

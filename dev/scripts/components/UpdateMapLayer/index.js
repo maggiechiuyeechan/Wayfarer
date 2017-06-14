@@ -10,13 +10,11 @@ export default class updateMapLayer extends React.Component {
 		super();
 		this.state = {
 			dbkey: null,
-			firebaseElement: null
+			firebaseElement: null,
 		}
 	}
-	displayGallery(){
-
-	}
 	componentWillReceiveProps(nextProps) {
+
 		if ( nextProps.geoJson.features !== undefined ) {
 			nextProps.geoJson.features.map((marker)=> {
 					let el = document.createElement('div');
